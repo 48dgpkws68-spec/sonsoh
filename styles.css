@@ -299,7 +299,7 @@ h2.display { font-size: clamp(2.4rem, 5.4vw, 4.6rem); margin-bottom: 26px; }
   box-shadow: 0 40px 120px -30px rgba(201, 169, 106, 0.25), 0 0 0 1px var(--line-soft);
 }
 .hero-visual img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  width: 100%; height: 100%; object-fit: cover; object-position: center 10%;
   transform: scale(1.06);
   animation: kenburns 22s ease-in-out infinite alternate;
 }
@@ -330,7 +330,7 @@ h2.display { font-size: clamp(2.4rem, 5.4vw, 4.6rem); margin-bottom: 26px; }
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-visual { aspect-ratio: 1 / 1; order: -1; margin-top: 8px; }
-  .hero-visual img { object-position: center 40%; }
+  .hero-visual img { object-position: center 15%; }
   #hero { padding-top: 96px; }
 }
 
