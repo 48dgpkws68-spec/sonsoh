@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SONSOH NIGHT — Sleep Earbuds with a Karelian Shungite Core</title>
+  <meta name="description" content="Flush-fit sleep earbuds with soundscapes, a week of battery and a genuine Karelian shungite core. 30-night trial. Founders Batch — 500 numbered pairs." />
+  <meta property="og:title" content="SONSOH NIGHT — Enter the Night." />
+  <meta property="og:description" content="The first sleep earbuds with a Karelian shungite core. Founders Batch: 500 numbered pairs." />
+  <meta property="og:image" content="images/hero-banner.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#050507" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050507'/%3E%3Ctext x='32' y='44' font-family='Arial Black,sans-serif' font-size='34' font-weight='900' fill='%23C9A96A' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- preloader -->
+  <div id="preloader" aria-hidden="true">
+    <div class="word"></div>
+    <div class="bar"></div>
+  </div>
+
+  <div id="cursor-glow" aria-hidden="true"></div>
+
+  <!-- night clock -->
+  <div id="night-clock" aria-hidden="true">
+    <span class="dot"></span><span class="t">23:47</span><span>— SCROLL THROUGH THE NIGHT</span>
+  </div>
+
+  <!-- nav -->
+  <header>
+    <a class="logo" href="#hero">S<em>O</em>NSOH</a>
+    <nav class="links" aria-label="Main">
+      <a href="#technology">Technology</a>
+      <a href="#core">Shungite</a>
+      <a href="#design">Design</a>
+      <a href="#compare">Compare</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <button class="btn btn-gold btn-sm js-open-modal" data-variant="Midnight">Pre-order — €119</button>
+      <button id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div id="mobile-menu">
+    <a href="#technology">Technology</a>
+    <a href="#core">Shungite</a>
+    <a href="#design">Design</a>
+    <a href="#compare">Compare</a>
+    <a href="#faq">FAQ</a>
+    <button class="btn btn-gold js-open-modal" data-variant="Midnight">Pre-order — €119</button>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Sonsoh Night — Sleep Earbuds</span>
+          <h1 class="display" aria-label="Enter the night.">
+            <span class="line"><span>Enter</span></span>
+            <span class="line"><span>the</span></span>
+            <span class="line"><span>Night.</span></span>
+          </h1>
+          <p class="lead hero-sub">The first sleep earbuds with a <strong>Karelian shungite core</strong>. Flush-fit calm, a week of battery, zero distraction — designed for the hours that repair you.</p>
+          <div class="hero-ctas">
+            <button class="btn btn-gold js-open-modal" data-variant="Midnight">Pre-order — Founders €119</button>
+            <a class="btn btn-ghost" href="#technology">Explore the technology</a>
+          </div>
+          <p class="hero-trust"><b>30-night trial</b> · 2-year warranty · Ships October 2026</p>
+        </div>
+        <div class="hero-visual">
+          <img src="images/hero-banner.jpg" alt="SONSOH NIGHT charging case in front of a glowing gold ring" fetchpriority="high" />
+          <div class="sweep"></div>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"></div>
+    </section>
+
+    <!-- MARQUEE -->
+    <section id="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>2.9 g per earbud</span><span>Karelian shungite core</span><span>Bluetooth Ultra-Low Energy</span><span>Flush fit for side sleepers</span><span>7 nights per charge</span><span>30-night trial</span>
+        <span>2.9 g per earbud</span><span>Karelian shungite core</span><span>Bluetooth Ultra-Low Energy</span><span>Flush fit for side sleepers</span><span>7 nights per charge</span><span>30-night trial</span>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem">
+      <div class="ghost-clock" aria-hidden="true">3:07</div>
+      <div class="wrap">
+        <span class="eyebrow reveal">The problem</span>
+        <h2 class="display reveal">You know this hour.</h2>
+        <p class="lead reveal" data-delay="1">Wide awake while the world sleeps. It's rarely your fault — it's everything around you.</p>
+        <div class="problem-cards">
+          <div class="card reveal">
+            <div class="num">01</div>
+            <h3>The snorer next to you</h3>
+            <p>Love them all you want — at 3 AM they sound like roadworks. You shouldn't have to choose between your partner and your sleep.</p>
+          </div>
+          <div class="card reveal" data-delay="1">
+            <div class="num">02</div>
+            <h3>The city that never mutes</h3>
+            <p>Traffic, neighbours, notifications. Noise is the last thing your brain lets go of — and the first thing that pulls it back.</p>
+          </div>
+          <div class="card reveal" data-delay="2">
+            <div class="num">03</div>
+            <h3>The mind that won't stop</h3>
+            <p>Silence isn't empty. For a racing mind, it's the loudest room there is. Sometimes you need the right sound, not no sound.</p>
+          </div>
+        </div>
+        <p class="problem-closer reveal">1 in 3 adults doesn't get enough sleep.<br /><b>We built NIGHT for them.</b></p>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY / PILLARS -->
+    <section id="technology">
+      <div class="wrap">
+        <div class="tech-grid">
+          <div class="tilt-frame reveal js-tilt">
+            <img src="images/case-midnight.jpg" alt="SONSOH NIGHT Midnight — open charging case with LED battery display" loading="lazy" />
+          </div>
+          <div>
+            <span class="eyebrow reveal">The product</span>
+            <h2 class="display reveal">Engineered for the hours that repair you.</h2>
+            <div class="pillars">
+              <div class="pillar reveal">
+                <span class="tag">Flushfit™</span>
+                <p>At <b>2.9 grams</b>, NIGHT sits fully inside the ear — nothing protrudes, nothing presses. Side sleepers feel the pillow, not the product.</p>
+              </div>
+              <div class="pillar reveal" data-delay="1">
+                <span class="tag">Nightsound™</span>
+                <p>Soundscapes and noise-masking tuned for <b>low-volume clarity</b>, with a sleep timer that powers everything down once you're gone.</p>
+              </div>
+              <div class="pillar reveal" data-delay="2">
+                <span class="tag">Karelia Core™</span>
+                <p>A core of <b>genuine Karelian shungite</b> — a rare carbon mineral — wrapped around ultra-low-energy electronics. <a href="#core" style="color:var(--gold-2)">The shungite story ↓</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KARELIA CORE -->
+    <section id="core">
+      <canvas id="core-particles" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <div class="core-grid">
+          <div class="orb-stage reveal">
+            <div class="orb"></div>
+            <span class="orb-label">Raw shungite — Karelian shield</span>
+          </div>
+          <div>
+            <span class="eyebrow reveal">Karelia Core™</span>
+            <h2 class="display reveal">A two-billion-year-old mineral. Inside a 2.9-gram earbud.</h2>
+            <div class="core-points">
+              <div class="core-point reveal">
+                <span class="idx">01</span>
+                <div>
+                  <h3>Only from Karelia</h3>
+                  <p>Shungite is found in one place on Earth: the Karelian shield. Nearly pure carbon, containing natural fullerene structures — a mineral older than complex life itself.</p>
+                </div>
+              </div>
+              <div class="core-point reveal" data-delay="1">
+                <span class="idx">02</span>
+                <div>
+                  <h3>EMF-conscious by design</h3>
+                  <p>Conductive carbon materials like shungite are studied for electromagnetic shielding. We pair a shungite core with Bluetooth Ultra-Low Energy that transmits at a fraction of a phone's power — and switches off when you sleep.</p>
+                </div>
+              </div>
+              <div class="core-point reveal" data-delay="2">
+                <span class="idx">03</span>
+                <div>
+                  <h3>Mindful tech</h3>
+                  <p>No always-on radio. No glowing screens. NIGHT is built for people who want technology in their night — without the noise, in any sense of the word.</p>
+                </div>
+              </div>
+            </div>
+            <p class="core-note">SONSOH NIGHT is a consumer audio product, not a medical or protective device.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAMPAIGN BREAK -->
+    <section id="campaign" aria-label="SONSOH — Enter the Quiet campaign">
+      <img src="images/hero-banner.jpg" alt="SONSOH campaign — Enter the Quiet" loading="lazy" id="campaign-img" />
+      <div class="edge top" aria-hidden="true"></div>
+      <div class="edge bottom" aria-hidden="true"></div>
+    </section>
+
+    <!-- DESIGN / VARIANTS -->
+    <section id="design">
+      <div class="wrap">
+        <div class="design-grid">
+          <div class="design-copy">
+            <span class="eyebrow reveal">The design</span>
+            <h2 class="display reveal">Two finishes. One core.</h2>
+            <p class="lead reveal" data-delay="1"><strong>Midnight</strong> disappears into the dark. <strong>Cloud</strong> belongs on the nightstand of a five-star suite. Both carry the same shungite core, the same flush fit, the same week of battery.</p>
+            <div class="variant-toggle reveal" data-delay="2" role="tablist" aria-label="Choose finish">
+              <button class="active" data-target="midnight" role="tab" aria-selected="true">Midnight</button>
+              <button data-target="cloud" role="tab" aria-selected="false">Cloud</button>
+            </div>
+            <div class="stats-row reveal" data-delay="2">
+              <div class="stat"><div class="v"><span class="count" data-to="2.9" data-dec="1">0</span> g</div><div class="l">per earbud</div></div>
+              <div class="stat"><div class="v"><span class="count" data-to="100">0</span>%</div><div class="l">in-ear, zero protrusion</div></div>
+              <div class="stat"><div class="v"><span class="count" data-to="3">0</span></div><div class="l">tip sizes included</div></div>
+            </div>
+          </div>
+          <div class="variant-stage reveal">
+            <img src="images/case-midnight.jpg" alt="SONSOH NIGHT — Midnight finish" class="active" data-variant="midnight" />
+            <img src="images/case-cloud.jpg" alt="SONSOH NIGHT — Cloud finish" data-variant="cloud" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section id="cases">
+      <div class="wrap">
+        <span class="eyebrow reveal">Use cases</span>
+        <h2 class="display reveal">Whatever steals your night — take it back.</h2>
+        <div class="cases-grid">
+          <div class="case-card reveal"><div class="ic">◗</div><h3>Side sleepers</h3><p>Flush in the concha. Turn over all you like — the pillow never finds them.</p></div>
+          <div class="case-card reveal" data-delay="1"><div class="ic">◑</div><h3>A snoring partner</h3><p>Masking tuned to swallow low rumbles. Stay in the same bed, and in love.</p></div>
+          <div class="case-card reveal" data-delay="2"><div class="ic">✈</div><h3>Travel &amp; jet lag</h3><p>Red-eyes, hotels, thin walls. A familiar soundscape anywhere on Earth.</p></div>
+          <div class="case-card reveal"><div class="ic">☾</div><h3>Shift work</h3><p>Sleeping at noon is brutal. NIGHT makes daylight sound like 2 AM.</p></div>
+          <div class="case-card reveal" data-delay="1"><div class="ic">◎</div><h3>A racing mind</h3><p>Guided wind-downs and steady noise give your thoughts one thing to hold on to.</p></div>
+          <div class="case-card reveal" data-delay="2"><div class="ic">❋</div><h3>Students &amp; thin walls</h3><p>Dorm life is loud. Your sleep doesn't have to be part of it.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BATTERY -->
+    <section id="battery">
+      <div class="wrap">
+        <div class="battery-grid">
+          <div class="big-seven reveal">7</div>
+          <div>
+            <span class="eyebrow reveal">Battery</span>
+            <h2 class="display reveal">Seven nights. One charge.</h2>
+            <p class="lead reveal" data-delay="1">Six hours per night from the buds, three full recharges from the case — with an <strong>LED display</strong> that shows exactly how much night you have left. USB-C, of course.</p>
+            <div class="led-strip reveal" data-delay="2" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <p class="led-cap reveal" data-delay="2">Case display — 100</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section id="compare">
+      <div class="wrap">
+        <span class="eyebrow reveal">Compare</span>
+        <h2 class="display reveal">Daytime earbuds weren't built for this.</h2>
+        <div class="table-scroll reveal" data-delay="1">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th class="hl">Sonsoh Night</th>
+                <th>Everyday earbuds</th>
+                <th>Foam earplugs</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Designed for side sleeping</td><td class="hl yes">✓</td><td class="no">✕</td><td class="yes">✓</td></tr>
+              <tr><td>Soundscapes &amp; masking</td><td class="hl yes">✓</td><td class="yes">✓</td><td class="no">✕</td></tr>
+              <tr><td>Auto-off sleep timer</td><td class="hl yes">✓</td><td class="no">✕</td><td class="no">—</td></tr>
+              <tr><td>Weight under 3 g</td><td class="hl yes">✓</td><td class="no">✕</td><td class="yes">✓</td></tr>
+              <tr><td>Karelian shungite core</td><td class="hl yes">✓</td><td class="no">✕</td><td class="no">✕</td></tr>
+              <tr><td>Ultra-low-energy Bluetooth</td><td class="hl yes">✓</td><td class="no">✕</td><td class="no">—</td></tr>
+              <tr><td>Wakes you gently, only you</td><td class="hl yes">✓</td><td class="no">✕</td><td class="no">✕</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDERS -->
+    <section id="founders">
+      <div class="wrap">
+        <span class="eyebrow reveal" style="justify-content:center">Founders Batch</span>
+        <div class="founders-num reveal"><em class="count" data-to="500">0</em></div>
+        <h2 class="display reveal" style="font-size:clamp(1.6rem,3.4vw,2.6rem)">numbered pairs. That's the whole first run.</h2>
+        <p class="lead reveal" data-delay="1" style="margin-inline:auto">Every Founders pair is individually numbered and ships with lifetime priority support. When the batch is gone, the €119 price goes with it.</p>
+        <button class="btn btn-gold js-open-modal reveal" data-delay="2" data-variant="Midnight">Reserve your number</button>
+      </div>
+    </section>
+
+    <!-- PRE-ORDER -->
+    <section id="preorder">
+      <div class="wrap" style="text-align:center">
+        <span class="eyebrow reveal" style="justify-content:center">Pre-order</span>
+        <h2 class="display reveal">The night is yours again.</h2>
+        <div class="price-grid">
+          <div class="price-card reveal">
+            <h3>Night</h3>
+            <p class="sub">One pair. One quiet revolution.</p>
+            <div class="price-line"><span class="now">€119</span><span class="was">€149 at launch</span></div>
+            <ul>
+              <li>1× SONSOH NIGHT (Midnight or Cloud)</li>
+              <li>Charging case with LED display</li>
+              <li>3 sizes of silky dual-flange tips</li>
+              <li>Numbered Founders edition</li>
+            </ul>
+            <button class="btn btn-ghost js-open-modal" data-variant="Midnight">Reserve yours</button>
+          </div>
+          <div class="price-card featured reveal" data-delay="1">
+            <span class="flag">Most chosen</span>
+            <h3>Night Duo</h3>
+            <p class="sub">For both sides of the bed.</p>
+            <div class="price-line"><span class="now">€199</span><span class="was">€298 at launch</span></div>
+            <ul>
+              <li>2× SONSOH NIGHT — mix finishes freely</li>
+              <li>2 charging cases, 6 tip sizes</li>
+              <li>Consecutive Founders numbers</li>
+              <li>Priority October shipping</li>
+            </ul>
+            <button class="btn btn-gold js-open-modal" data-variant="Duo">Reserve the Duo</button>
+          </div>
+        </div>
+        <div class="assurance reveal" data-delay="2">
+          <span>30-night trial — love it or return it</span>
+          <span>2-year warranty</span>
+          <span>Free shipping NL · BE · DE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap">
+        <span class="eyebrow reveal">FAQ</span>
+        <h2 class="display reveal">Good questions.</h2>
+        <div class="faq-list reveal" data-delay="1">
+          <details>
+            <summary>Will they stay in all night? <span class="plus">+</span></summary>
+            <p>Yes. NIGHT sits flush inside the concha with dual-flange silicone tips in three sizes. There's nothing sticking out for a pillow to catch, and at 2.9 g there's barely anything to feel. Most testers forget they're wearing them before they fall asleep.</p>
+          </details>
+          <details>
+            <summary>Can I sleep on my side? <span class="plus">+</span></summary>
+            <p>That's exactly what NIGHT was designed for. The housing is fully recessed — we call it the pillow test: turn over, press your ear into the pillow, feel nothing. If you can feel them, use your 30-night trial.</p>
+          </details>
+          <details>
+            <summary>What is shungite, exactly? <span class="plus">+</span></summary>
+            <p>Shungite is a rare, nearly pure-carbon mineral found only in Karelia, estimated to be around two billion years old. It naturally contains fullerene structures and is one of the few minerals studied for electromagnetic shielding as a conductive carbon material. We build a core of genuine shungite into every NIGHT earbud — a piece of deep time in a device built for deep sleep.</p>
+          </details>
+          <details>
+            <summary>Is Bluetooth on all night? <span class="plus">+</span></summary>
+            <p>No. NIGHT uses Bluetooth Ultra-Low Energy, which transmits at a small fraction of a phone's power — and the sleep timer switches the radio off entirely once you're asleep. For everyone who prefers to keep their nights analog, that low-transmission design plus the shungite core is the whole point of NIGHT.</p>
+          </details>
+          <details>
+            <summary>How long does the battery last? <span class="plus">+</span></summary>
+            <p>Up to six hours of continuous playback per night, and the case holds three additional full charges — about a week of nights. The LED display on the case shows the exact percentage remaining, and USB-C tops everything up fast.</p>
+          </details>
+          <details>
+            <summary>When does it ship? <span class="plus">+</span></summary>
+            <p>The Founders Batch — 500 numbered pairs — ships in October 2026. Reserving today costs nothing: you'll receive a payment link when your number is ready to ship, and your 30-night trial starts on delivery, not on order.</p>
+          </details>
+          <details>
+            <summary>Returns &amp; warranty? <span class="plus">+</span></summary>
+            <p>Sleep with NIGHT for 30 nights. If it isn't the best sleep purchase you've made, return it for a full refund — no questions, no restocking games. Every pair carries a 2-year warranty.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="ghost-mark" aria-hidden="true">SONSOH</div>
+    <div class="foot-grid">
+      <div class="nightlist">
+        <a class="logo" href="#hero">S<em>O</em>NSOH</a>
+        <p>Join the Nightlist — early access, launch pricing, no noise.</p>
+        <form class="nl-form" id="nightlist-form">
+          <input type="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button type="submit">Join</button>
+        </form>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#preorder">Night — €119</a>
+        <a href="#preorder">Night Duo — €199</a>
+        <a href="#compare">Compare</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="#faq">FAQ</a>
+        <a href="#faq">Shipping</a>
+        <a href="#faq">30-night trial</a>
+        <a href="#faq">Warranty</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#hero">About SONSOH</a>
+        <a href="mailto:hello@sonsoh.com">Contact</a>
+        <a href="#hero">Press kit</a>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 SONSOH. All rights reserved.</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
+    <p class="foot-disclaimer">SONSOH NIGHT is a consumer audio product and makes no medical claims. Battery life, weight and connectivity specifications are provisional pending final production. Enter the Quiet.</p>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <button class="close" aria-label="Close">×</button>
+      <div class="modal-form">
+        <h3 id="modal-title">Reserve your number</h3>
+        <p class="msub">Pay nothing today. We'll send your payment link when your Founders number is ready to ship — October 2026.</p>
+        <form id="reserve-form">
+          <label>Finish</label>
+          <div class="variant-pick">
+            <button type="button" class="active" data-v="Midnight">Midnight</button>
+            <button type="button" data-v="Cloud">Cloud</button>
+            <button type="button" data-v="Duo">Duo — both</button>
+          </div>
+          <label for="r-name">Name</label>
+          <input type="text" id="r-name" required autocomplete="name" />
+          <label for="r-email">Email</label>
+          <input type="email" id="r-email" required autocomplete="email" />
+          <button type="submit" class="btn btn-gold">Join the Founders Batch</button>
+          <p class="fine">30-night trial · 2-year warranty · cancel anytime before shipping</p>
+        </form>
+      </div>
+      <div class="modal-success">
+        <div class="ok">✓</div>
+        <h3>You're on the list.</h3>
+        <p class="msub" style="margin-top:12px">Welcome to the Founders Batch. We'll email you the moment your number is reserved and again when NIGHT ships in October.</p>
+        <button class="btn btn-ghost js-close-modal" style="margin-top:20px">Back to the night</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://48dgpkws68-spec.github.io/sonsoh-night/sitemap.xml
