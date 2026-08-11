@@ -44,12 +44,14 @@
     const m = Math.floor(t % 60);
     clockT.textContent = `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 
-    // campaign parallax
+    // campaign parallax (stays within the 1.08 scale margin so edges never show)
     if (campaignImg) {
       const r = campaignSection.getBoundingClientRect();
       if (r.bottom > 0 && r.top < window.innerHeight) {
-        const shift = ((r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight) * 40;
-        campaignImg.style.transform = `translateY(${shift}px)`;
+        const maxShift = r.height * 0.035;
+        const p = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+        const shift = Math.max(-maxShift, Math.min(maxShift, p * maxShift * 2));
+        campaignImg.style.transform = `scale(1.08) translateY(${shift}px)`;
       }
     }
   };
