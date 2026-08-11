@@ -448,6 +448,10 @@ h2.display { font-size: clamp(2.4rem, 5.4vw, 4.6rem); margin-bottom: 26px; }
   animation: orb-float 7s ease-in-out infinite;
 }
 @keyframes orb-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+.orb.photo {
+  background: url("images/shungite-macro.jpg") center / cover no-repeat;
+}
+.orb.photo::before { opacity: 0.45; }
 .orb::before {
   content: ""; position: absolute; inset: 0; border-radius: 50%;
   background:
@@ -624,6 +628,21 @@ th.hl, td.hl {
 th.hl { font-family: var(--font-display); letter-spacing: 0.2em; font-size: 0.85rem; }
 .yes { color: var(--gold-2); }
 .no { color: rgba(139, 133, 119, 0.55); }
+
+/* ============================================================
+   LIFESTYLE BREAK
+   ============================================================ */
+#lifestyle { padding: 0; height: clamp(420px, 80vh, 800px); overflow: hidden; position: relative; }
+#lifestyle img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+#lifestyle .edge { position: absolute; left: 0; right: 0; height: 140px; z-index: 2; }
+#lifestyle .edge.top { top: 0; background: linear-gradient(180deg, var(--bg-2), transparent); }
+#lifestyle .edge.bottom { bottom: 0; background: linear-gradient(0deg, var(--bg), transparent); }
+.lifestyle-quote {
+  position: absolute; left: clamp(20px, 6vw, 90px); bottom: clamp(40px, 10vh, 100px); z-index: 3;
+  max-width: 520px;
+}
+.lifestyle-quote .display { font-size: clamp(2rem, 4.6vw, 3.8rem); text-transform: uppercase; }
+.lifestyle-quote .q-sub { margin-top: 14px; color: var(--ink); opacity: 0.85; font-size: 1.02rem; }
 
 /* ============================================================
    FOUNDERS
