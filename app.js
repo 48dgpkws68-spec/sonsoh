@@ -257,8 +257,19 @@
     })
   );
 
+  /* ---------- send to the SONSOH form receiver (VPS, since 16 nov 2026) ---------- */
+  const FORM_URL = "https://formulier.1v1battles.com/sn/";
+  const sendForm = (kind, data) =>
+    fetch(FORM_URL + kind, {
+      method: "POST",
+      mode: "no-cors",
+      body: new URLSearchParams(data),
+    });
+
   document.getElementById("reserve-form").addEventListener("submit", (e) => {
     e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
     const entry = {
       name: document.getElementById("r-name").value,
       email: document.getElementById("r-email").value,
@@ -269,23 +280,55 @@
       const list = JSON.parse(localStorage.getItem("sonsoh-reservations") || "[]");
       list.push(entry);
       localStorage.setItem("sonsoh-reservations", JSON.stringify(list));
-    } catch (_) { /* storage unavailable — demo only */ }
-    modal.classList.add("success");
+    } catch (_) { /* storage unavailable */ }
+    btn.disabled = true;
+    sendForm("reservering", {
+      naam: entry.name,
+      email: entry.email,
+      variant: entry.variant,
+      pagina: location.href,
+      _honey: document.getElementById("r-hp").value,
+    })
+      .then(() => {
+        modal.classList.add("success");
+        if (window.umami) window.umami.track("formulier-verzonden", { soort: "reservering", variant: entry.variant });
+      })
+      .catch(() => {
+        btn.textContent = "Could not send. Please try again";
+        if (window.umami) window.umami.track("formulier-fout", { soort: "reservering" });
+      })
+      .finally(() => { btn.disabled = false; });
   });
 
   /* ---------- nightlist form ---------- */
   document.getElementById("nightlist-form").addEventListener("submit", (e) => {
     e.preventDefault();
-    const input = e.target.querySelector("input");
+    const input = e.target.querySelector('input[type="email"]');
     try {
       const list = JSON.parse(localStorage.getItem("sonsoh-nightlist") || "[]");
       list.push({ email: input.value, at: new Date().toISOString() });
       localStorage.setItem("sonsoh-nightlist", JSON.stringify(list));
     } catch (_) {}
-    input.value = "";
     const btn = e.target.querySelector("button");
     const old = btn.textContent;
-    btn.textContent = "✓";
-    setTimeout(() => (btn.textContent = old), 2200);
+    btn.disabled = true;
+    sendForm("nightlist", {
+      email: input.value,
+      pagina: location.href,
+      _honey: e.target.querySelector('input[name="_honey"]').value,
+    })
+      .then(() => {
+        input.value = "";
+        btn.textContent = "✓";
+        if (window.umami) window.umami.track("formulier-verzonden", { soort: "nightlist" });
+      })
+      .catch(() => {
+        btn.textContent = "Retry";
+        if (window.umami) window.umami.track("formulier-fout", { soort: "nightlist" });
+      })
+      .finally(() => {
+        btn.disabled = false;
+        setTimeout(() => (btn.textContent = old), 2200);
+      });
   });
 })();

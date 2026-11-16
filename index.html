@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://stats.1v1battles.com/nv.js" data-website-id="3d2cddb1-2a2c-4aee-99cd-4b33e1ef40aa"></script>
 </head>
 <body>
 
@@ -74,7 +75,7 @@
             <button class="btn btn-gold js-open-modal" data-variant="Midnight">Pre-order · Founders €119</button>
             <a class="btn btn-ghost" href="#technology">Explore the technology</a>
           </div>
-          <p class="hero-trust"><b>30-night trial</b> · 2-year warranty · Ships October 2026</p>
+          <p class="hero-trust"><b>30-night trial</b> · 2-year warranty · Founders ship first</p>
         </div>
         <div class="hero-visual">
           <img src="images/hero-night.jpg" alt="SONSOH NIGHT charging case and earbuds on a shungite rock" fetchpriority="high" />
@@ -335,7 +336,7 @@
               <li>2× SONSOH NIGHT, mix finishes freely</li>
               <li>2 charging cases, 6 tip sizes</li>
               <li>Consecutive Founders numbers</li>
-              <li>Priority October shipping</li>
+              <li>Priority shipping</li>
             </ul>
             <button class="btn btn-gold js-open-modal" data-variant="Duo">Reserve the Duo</button>
           </div>
@@ -376,7 +377,7 @@
           </details>
           <details>
             <summary>When does it ship? <span class="plus">+</span></summary>
-            <p>The Founders Batch of 500 numbered pairs ships in October 2026. Reserving today costs nothing: you'll receive a payment link when your number is ready to ship, and your 30-night trial starts on delivery, not on order.</p>
+            <p>The Founders Batch of 500 numbered pairs is the first to ship; we'll email you the date as soon as it is confirmed. Reserving today costs nothing: you'll receive a payment link when your number is ready to ship, and your 30-night trial starts on delivery, not on order.</p>
           </details>
           <details>
             <summary>Returns &amp; warranty? <span class="plus">+</span></summary>
@@ -396,7 +397,8 @@
         <a class="logo" href="#hero">S<em>O</em>NSOH</a>
         <p>Join the Nightlist: early access, launch pricing, no noise.</p>
         <form class="nl-form" id="nightlist-form">
-          <input type="email" placeholder="your@email.com" required aria-label="Email address" />
+          <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address" />
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
           <button type="submit">Join</button>
         </form>
       </div>
@@ -433,7 +435,7 @@
       <button class="close" aria-label="Close">×</button>
       <div class="modal-form">
         <h3 id="modal-title">Reserve your number</h3>
-        <p class="msub">Pay nothing today. We'll send your payment link when your Founders number is ready to ship in October 2026.</p>
+        <p class="msub">Pay nothing today. We'll send your payment link when your Founders number is ready to ship.</p>
         <form id="reserve-form">
           <label>Finish</label>
           <div class="variant-pick">
@@ -445,6 +447,7 @@
           <input type="text" id="r-name" required autocomplete="name" />
           <label for="r-email">Email</label>
           <input type="email" id="r-email" required autocomplete="email" />
+          <input type="text" id="r-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
           <button type="submit" class="btn btn-gold">Join the Founders Batch</button>
           <p class="fine">30-night trial · 2-year warranty · cancel anytime before shipping</p>
         </form>
@@ -452,7 +455,7 @@
       <div class="modal-success">
         <div class="ok">✓</div>
         <h3>You're on the list.</h3>
-        <p class="msub" style="margin-top:12px">Welcome to the Founders Batch. We'll email you the moment your number is reserved and again when NIGHT ships in October.</p>
+        <p class="msub" style="margin-top:12px">Welcome to the Founders Batch. We'll email you the moment your number is reserved and again when NIGHT ships.</p>
         <button class="btn btn-ghost js-close-modal" style="margin-top:20px">Back to the night</button>
       </div>
     </div>
