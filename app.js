@@ -230,7 +230,7 @@
   const variantBtns = modal.querySelectorAll(".variant-pick button");
 
   const openModal = (variant) => {
-    modal.classList.remove("success");
+    modal.classList.remove("success", "contact", "sent");
     if (variant) {
       variantBtns.forEach((b) => b.classList.toggle("active", b.dataset.v === variant));
     }
@@ -246,6 +246,18 @@
   document.querySelectorAll(".js-open-modal").forEach((b) =>
     b.addEventListener("click", () => openModal(b.dataset.variant))
   );
+  const openContact = () => {
+    modal.classList.remove("success", "sent");
+    modal.classList.add("contact");
+    backdrop.classList.add("open");
+    document.body.style.overflow = "hidden";
+    setTimeout(() => document.getElementById("c-name").focus(), 350);
+    if (window.umami) window.umami.track("contact-open");
+  };
+  document.querySelectorAll(".js-open-contact").forEach((b) =>
+    b.addEventListener("click", (e) => { e.preventDefault(); openContact(); })
+  );
+  if (location.hash === "#contact") setTimeout(openContact, 600);
   modal.querySelector(".close").addEventListener("click", closeModal);
   document.querySelectorAll(".js-close-modal").forEach((b) => b.addEventListener("click", closeModal));
   backdrop.addEventListener("click", (e) => { if (e.target === backdrop) closeModal(); });
@@ -296,6 +308,30 @@
       .catch(() => {
         btn.textContent = "Could not send. Please try again";
         if (window.umami) window.umami.track("formulier-fout", { soort: "reservering" });
+      })
+      .finally(() => { btn.disabled = false; });
+  });
+
+  /* ---------- contact form ---------- */
+  document.getElementById("contact-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    sendForm("contact", {
+      naam: document.getElementById("c-name").value,
+      email: document.getElementById("c-email").value,
+      bericht: document.getElementById("c-msg").value,
+      pagina: location.href,
+      _honey: document.getElementById("c-hp").value,
+    })
+      .then(() => {
+        modal.classList.add("sent");
+        e.target.reset();
+        if (window.umami) window.umami.track("formulier-verzonden", { soort: "contact" });
+      })
+      .catch(() => {
+        btn.textContent = "Could not send. Please try again";
+        if (window.umami) window.umami.track("formulier-fout", { soort: "contact" });
       })
       .finally(() => { btn.disabled = false; });
   });

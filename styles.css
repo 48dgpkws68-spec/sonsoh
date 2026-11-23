@@ -788,7 +788,7 @@ footer {
 .modal h3 { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.1em; margin-bottom: 8px; }
 .modal .msub { color: var(--muted); font-size: 0.9rem; margin-bottom: 30px; }
 .modal label { display: block; font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin: 20px 0 8px; }
-.modal input[type="text"], .modal input[type="email"] {
+.modal input[type="text"], .modal input[type="email"], .modal textarea {
   width: 100%; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line-soft);
   border-radius: 12px; padding: 14px 18px; color: var(--ink);
   font-family: var(--font-body); font-size: 0.95rem; outline: none; transition: border-color 0.3s;
@@ -819,3 +819,13 @@ footer {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* contact (23 nov 2026: replaces mailto, sonsoh.com has no mailbox) */
+.modal textarea { resize: vertical; min-height: 120px; }
+.modal-contact, .modal-contact-ok { display: none; }
+.modal-contact-ok { text-align: center; padding: 20px 0; }
+.modal-contact-ok .ok { width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
+.modal.contact .modal-form, .modal.contact .modal-success { display: none; }
+.modal.contact .modal-contact { display: block; }
+.modal.contact.sent .modal-contact { display: none; }
+.modal.contact.sent .modal-contact-ok { display: block; }

@@ -418,7 +418,7 @@
       <div>
         <h4>Company</h4>
         <a href="#hero">About SONSOH</a>
-        <a href="mailto:hello@sonsoh.com">Contact</a>
+        <a href="#contact" class="js-open-contact">Contact</a>
         <a href="#hero">Press kit</a>
       </div>
     </div>
@@ -451,6 +451,26 @@
           <button type="submit" class="btn btn-gold">Join the Founders Batch</button>
           <p class="fine">30-night trial · 2-year warranty · cancel anytime before shipping</p>
         </form>
+      </div>
+      <div class="modal-contact">
+        <h3>Contact SONSOH</h3>
+        <p class="msub">Questions about NIGHT, the Founders Batch or press? Send us a message and we'll reply by email.</p>
+        <form id="contact-form">
+          <label for="c-name">Name</label>
+          <input type="text" id="c-name" required autocomplete="name" />
+          <label for="c-email">Email</label>
+          <input type="email" id="c-email" required autocomplete="email" />
+          <label for="c-msg">Message</label>
+          <textarea id="c-msg" rows="5" required maxlength="3000"></textarea>
+          <input type="text" id="c-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+          <button type="submit" class="btn btn-gold">Send message</button>
+        </form>
+      </div>
+      <div class="modal-contact-ok">
+        <div class="ok">✓</div>
+        <h3>Message sent.</h3>
+        <p class="msub" style="margin-top:12px">Thank you. We'll reply to the email address you gave us.</p>
+        <button class="btn btn-ghost js-close-modal" style="margin-top:20px">Back to the night</button>
       </div>
       <div class="modal-success">
         <div class="ok">✓</div>
