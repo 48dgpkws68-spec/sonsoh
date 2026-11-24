@@ -737,7 +737,7 @@ footer {
   display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 40px;
   max-width: 1240px; margin: 0 auto; position: relative; z-index: 2;
 }
-.foot-grid h4 { font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 500; }
+.foot-grid h3, .foot-grid h4 { font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 500; }
 .foot-grid a { display: block; color: var(--muted); font-size: 0.88rem; padding: 5px 0; transition: color 0.3s; }
 .foot-grid a:hover { color: var(--ink); }
 .nightlist p { color: var(--muted); font-size: 0.9rem; margin: 14px 0 22px; max-width: 34ch; }
@@ -829,3 +829,72 @@ footer {
 .modal.contact .modal-contact { display: block; }
 .modal.contact.sent .modal-contact { display: none; }
 .modal.contact.sent .modal-contact-ok { display: block; }
+
+/* ============================================================
+   SUBPAGES: guide, contact, privacy (24 nov 2026)
+   same tokens and components as the homepage
+   ============================================================ */
+.text-link { color: var(--gold-2); border-bottom: 1px solid var(--line); transition: border-color 0.3s; }
+.text-link:hover { border-bottom-color: var(--gold-2); }
+.foot-legal a { transition: color 0.3s; }
+.foot-legal a:hover { color: var(--ink); }
+
+.page-hero { background: var(--bg); padding-top: clamp(150px, 22vh, 220px); overflow: hidden; }
+.page-hero h1.display { font-size: clamp(2.6rem, 6.4vw, 5.4rem); margin-bottom: 30px; max-width: 16ch; }
+.page-hero .lead { max-width: 62ch; }
+.byline { margin-top: 30px; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); }
+.byline b { color: var(--gold); font-weight: 500; }
+.bg-2 { background: var(--bg-2); }
+
+.prose > * { max-width: 760px; }
+.prose h3 { font-size: 1.25rem; font-weight: 500; color: var(--ink); margin: 54px 0 14px; }
+.prose h3:first-of-type { margin-top: 10px; }
+.prose p { color: var(--muted); font-size: 1rem; margin-bottom: 18px; max-width: 68ch; }
+.prose p strong, .prose li strong { color: var(--ink); font-weight: 500; }
+.prose ul, .card-list { list-style: none; margin: 6px 0 22px; }
+.prose li, .card-list li { position: relative; padding: 9px 0 9px 26px; color: var(--muted); font-size: 0.96rem; border-bottom: 1px dashed var(--line-soft); }
+.prose li::before, .card-list li::before { content: "◆"; position: absolute; left: 0; top: 11px; color: var(--gold); font-size: 0.6rem; }
+.prose a { color: var(--gold-2); border-bottom: 1px solid var(--line); }
+.prose a:hover { border-bottom-color: var(--gold-2); }
+
+.guide-table td { font-size: 0.88rem; }
+.guide-table td:not(:first-child) { text-align: left; }
+.table-note { margin-top: 30px; color: var(--muted); font-size: 0.94rem; max-width: 72ch; }
+
+.fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 50px; }
+.fit-grid .card-list li { font-size: 0.92rem; }
+.fit-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 44px; align-items: center; }
+.fit-ctas .hint { color: var(--muted); font-size: 0.85rem; }
+@media (max-width: 900px) { .fit-grid { grid-template-columns: 1fr; } }
+
+.page-note { max-width: 820px; margin: 40px auto 0; font-size: 0.78rem; color: rgba(139, 133, 119, 0.8); }
+
+/* contact page form: same field styling as the modal */
+.contact-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(40px, 6vw, 90px); align-items: start; margin-top: 10px; }
+.contact-card { background: #0c0c12; border: 1px solid var(--line); border-radius: 26px; padding: 40px; }
+.contact-card label { display: block; font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin: 20px 0 8px; }
+.contact-card label:first-of-type { margin-top: 0; }
+.contact-card input[type="text"], .contact-card input[type="email"], .contact-card textarea {
+  width: 100%; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line-soft);
+  border-radius: 12px; padding: 14px 18px; color: var(--ink);
+  font-family: var(--font-body); font-size: 0.95rem; outline: none; transition: border-color 0.3s;
+}
+.contact-card input:focus, .contact-card textarea:focus { border-color: var(--gold); }
+.contact-card textarea { resize: vertical; min-height: 160px; }
+.contact-card .btn { width: 100%; margin-top: 30px; }
+.contact-card .contact-ok { display: none; text-align: center; padding: 20px 0; }
+.contact-card .contact-ok .ok { width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
+.contact-card .contact-ok p { color: var(--muted); font-size: 0.92rem; margin-top: 10px; }
+.contact-card.sent form { display: none; }
+.contact-card.sent .contact-ok { display: block; }
+.contact-side .pillar p { max-width: 40ch; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } .contact-card { padding: 30px 24px; } }
+.steps { max-width: 820px; }
+.prose h2 { font-family: var(--font-display); text-transform: uppercase; font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 2.05rem); letter-spacing: 0.03em; line-height: 1.1; color: var(--ink); margin: 60px 0 18px; }
+.prose h2:first-child { margin-top: 0; }
+.contact-card .fine { font-size: 0.72rem; color: var(--muted); margin-top: 16px; text-align: center; }
+.contact-ok h2 { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400; }
+.contact-side .pillar:first-child { padding-top: 0; border-top: none; }
+.prose h2.display { font-size: clamp(2.4rem, 5.4vw, 4.6rem); line-height: 0.96; letter-spacing: 0.015em; margin: 0 0 26px; }
+.guide-table th { text-align: left; }
+.guide-table { min-width: 820px; }

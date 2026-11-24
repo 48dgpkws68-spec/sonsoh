@@ -6,21 +6,23 @@
 
   /* ---------- preloader ---------- */
   const pre = document.getElementById("preloader");
-  const word = pre.querySelector(".word");
-  "SONSOH".split("").forEach((ch, i) => {
-    const s = document.createElement("span");
-    s.textContent = ch;
-    s.style.animationDelay = `${i * 0.07}s`;
-    word.appendChild(s);
-  });
-  window.addEventListener("load", () => {
-    setTimeout(() => pre.classList.add("done"), reduced ? 0 : 1200);
-  });
-  setTimeout(() => pre.classList.add("done"), 2600); // failsafe
+  if (pre) {
+    const word = pre.querySelector(".word");
+    "SONSOH".split("").forEach((ch, i) => {
+      const s = document.createElement("span");
+      s.textContent = ch;
+      s.style.animationDelay = `${i * 0.07}s`;
+      word.appendChild(s);
+    });
+    window.addEventListener("load", () => {
+      setTimeout(() => pre.classList.add("done"), reduced ? 0 : 1200);
+    });
+    setTimeout(() => pre.classList.add("done"), 2600); // failsafe
+  }
 
   /* ---------- cursor glow ---------- */
   const glow = document.getElementById("cursor-glow");
-  document.addEventListener("mousemove", (e) => {
+  if (glow) document.addEventListener("mousemove", (e) => {
     glow.style.left = e.clientX + "px";
     glow.style.top = e.clientY + "px";
   });
@@ -28,12 +30,12 @@
   /* ---------- header state ---------- */
   const header = document.querySelector("header");
   const clock = document.getElementById("night-clock");
-  const clockT = clock.querySelector(".t");
+  const clockT = clock ? clock.querySelector(".t") : null;
 
   const onScroll = () => {
     const y = window.scrollY;
     header.classList.toggle("scrolled", y > 40);
-    clock.classList.toggle("on", y > window.innerHeight * 0.5);
+    if (clock) clock.classList.toggle("on", y > window.innerHeight * 0.5);
 
     // night clock: 23:30 -> 07:00 across the page
     const max = document.documentElement.scrollHeight - window.innerHeight;
@@ -42,7 +44,7 @@
     const t = start + (end - start) * p;
     const h = Math.floor(t / 60) % 24;
     const m = Math.floor(t % 60);
-    clockT.textContent = `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
+    if (clockT) clockT.textContent = `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 
     // campaign parallax (stays within the 1.08 scale margin so edges never show)
     if (campaignImg) {
@@ -63,10 +65,12 @@
   /* ---------- mobile menu ---------- */
   const burger = document.getElementById("hamburger");
   const menu = document.getElementById("mobile-menu");
-  burger.addEventListener("click", () => menu.classList.toggle("open"));
-  menu.querySelectorAll("a, button").forEach((el) =>
-    el.addEventListener("click", () => menu.classList.remove("open"))
-  );
+  if (burger && menu) {
+    burger.addEventListener("click", () => menu.classList.toggle("open"));
+    menu.querySelectorAll("a, button").forEach((el) =>
+      el.addEventListener("click", () => menu.classList.remove("open"))
+    );
+  }
 
   /* ---------- reveal on scroll ---------- */
   const io = new IntersectionObserver(
@@ -197,8 +201,8 @@
 
   /* ---------- variant toggle ---------- */
   const design = document.getElementById("design");
-  const vImgs = design.querySelectorAll(".variant-stage img");
-  design.querySelectorAll(".variant-toggle button").forEach((btn) => {
+  const vImgs = design ? design.querySelectorAll(".variant-stage img") : [];
+  if (design) design.querySelectorAll(".variant-toggle button").forEach((btn) => {
     btn.addEventListener("click", () => {
       const target = btn.dataset.target;
       design.querySelectorAll(".variant-toggle button").forEach((b) => {
@@ -226,48 +230,50 @@
 
   /* ---------- modal ---------- */
   const backdrop = document.getElementById("modal-backdrop");
-  const modal = backdrop.querySelector(".modal");
-  const variantBtns = modal.querySelectorAll(".variant-pick button");
+  const modal = backdrop ? backdrop.querySelector(".modal") : null;
+  const variantBtns = modal ? modal.querySelectorAll(".variant-pick button") : [];
 
-  const openModal = (variant) => {
-    modal.classList.remove("success", "contact", "sent");
-    if (variant) {
-      variantBtns.forEach((b) => b.classList.toggle("active", b.dataset.v === variant));
-    }
-    backdrop.classList.add("open");
-    document.body.style.overflow = "hidden";
-    setTimeout(() => document.getElementById("r-name").focus(), 350);
-  };
-  const closeModal = () => {
-    backdrop.classList.remove("open");
-    document.body.style.overflow = "";
-  };
+  if (modal) {
+    const openModal = (variant) => {
+      modal.classList.remove("success", "contact", "sent");
+      if (variant) {
+        variantBtns.forEach((b) => b.classList.toggle("active", b.dataset.v === variant));
+      }
+      backdrop.classList.add("open");
+      document.body.style.overflow = "hidden";
+      setTimeout(() => document.getElementById("r-name").focus(), 350);
+    };
+    const closeModal = () => {
+      backdrop.classList.remove("open");
+      document.body.style.overflow = "";
+    };
 
-  document.querySelectorAll(".js-open-modal").forEach((b) =>
-    b.addEventListener("click", () => openModal(b.dataset.variant))
-  );
-  const openContact = () => {
-    modal.classList.remove("success", "sent");
-    modal.classList.add("contact");
-    backdrop.classList.add("open");
-    document.body.style.overflow = "hidden";
-    setTimeout(() => document.getElementById("c-name").focus(), 350);
-    if (window.umami) window.umami.track("contact-open");
-  };
-  document.querySelectorAll(".js-open-contact").forEach((b) =>
-    b.addEventListener("click", (e) => { e.preventDefault(); openContact(); })
-  );
-  if (location.hash === "#contact") setTimeout(openContact, 600);
-  modal.querySelector(".close").addEventListener("click", closeModal);
-  document.querySelectorAll(".js-close-modal").forEach((b) => b.addEventListener("click", closeModal));
-  backdrop.addEventListener("click", (e) => { if (e.target === backdrop) closeModal(); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+    document.querySelectorAll(".js-open-modal").forEach((b) =>
+      b.addEventListener("click", (e) => { if (b.tagName === "A") e.preventDefault(); openModal(b.dataset.variant); })
+    );
+    const openContact = () => {
+      modal.classList.remove("success", "sent");
+      modal.classList.add("contact");
+      backdrop.classList.add("open");
+      document.body.style.overflow = "hidden";
+      setTimeout(() => document.getElementById("c-name").focus(), 350);
+      if (window.umami) window.umami.track("contact-open");
+    };
+    document.querySelectorAll(".js-open-contact").forEach((b) =>
+      b.addEventListener("click", (e) => { e.preventDefault(); openContact(); })
+    );
+    if (location.hash === "#contact") setTimeout(openContact, 600);
+    modal.querySelector(".close").addEventListener("click", closeModal);
+    document.querySelectorAll(".js-close-modal").forEach((b) => b.addEventListener("click", closeModal));
+    backdrop.addEventListener("click", (e) => { if (e.target === backdrop) closeModal(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
-  variantBtns.forEach((b) =>
-    b.addEventListener("click", () => {
-      variantBtns.forEach((x) => x.classList.toggle("active", x === b));
-    })
-  );
+    variantBtns.forEach((b) =>
+      b.addEventListener("click", () => {
+        variantBtns.forEach((x) => x.classList.toggle("active", x === b));
+      })
+    );
+  }
 
   /* ---------- send to the SONSOH form receiver (VPS, since 16 nov 2026) ---------- */
   const FORM_URL = "https://formulier.1v1battles.com/sn/";
@@ -278,7 +284,8 @@
       body: new URLSearchParams(data),
     });
 
-  document.getElementById("reserve-form").addEventListener("submit", (e) => {
+  const reserveForm = document.getElementById("reserve-form");
+  if (reserveForm) reserveForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const form = e.target;
     const btn = form.querySelector('button[type="submit"]');
@@ -312,20 +319,23 @@
       .finally(() => { btn.disabled = false; });
   });
 
-  /* ---------- contact form ---------- */
-  document.getElementById("contact-form").addEventListener("submit", (e) => {
+  /* ---------- contact form (modal on every page, inline on /contact.html) ---------- */
+  document.querySelectorAll("#contact-form, #contact-page-form").forEach((form) => form.addEventListener("submit", (e) => {
     e.preventDefault();
     const btn = e.target.querySelector('button[type="submit"]');
+    const val = (n) => (e.target.querySelector(`[name="${n}"]`) || {}).value || "";
     btn.disabled = true;
     sendForm("contact", {
-      naam: document.getElementById("c-name").value,
-      email: document.getElementById("c-email").value,
-      bericht: document.getElementById("c-msg").value,
+      naam: val("naam"),
+      email: val("email"),
+      bericht: val("bericht"),
       pagina: location.href,
-      _honey: document.getElementById("c-hp").value,
+      _honey: val("_honey"),
     })
       .then(() => {
-        modal.classList.add("sent");
+        const card = e.target.closest(".contact-card");
+        if (card) card.classList.add("sent");
+        else if (modal) modal.classList.add("sent");
         e.target.reset();
         if (window.umami) window.umami.track("formulier-verzonden", { soort: "contact" });
       })
@@ -334,10 +344,11 @@
         if (window.umami) window.umami.track("formulier-fout", { soort: "contact" });
       })
       .finally(() => { btn.disabled = false; });
-  });
+  }));
 
   /* ---------- nightlist form ---------- */
-  document.getElementById("nightlist-form").addEventListener("submit", (e) => {
+  const nightlistForm = document.getElementById("nightlist-form");
+  if (nightlistForm) nightlistForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const input = e.target.querySelector('input[type="email"]');
     try {
